@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" data-provider-thread-count="3">
+  <listeners>
+    <listener class-name="com.automation.listeners.ListenerClass"/>
+    <listener class-name="com.automation.listeners.MethodInterceptor"/>
+    <listener class-name="com.automation.listeners.AnnotationTransformer"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)" parallel="methods">
+    <classes>
+      <class name="com.automation.tests.AmazonDemoTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="amazonTest"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.automation.tests.AmazonDemoTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
