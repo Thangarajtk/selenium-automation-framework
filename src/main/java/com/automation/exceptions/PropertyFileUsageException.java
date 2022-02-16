@@ -11,7 +11,6 @@ public class PropertyFileUsageException extends FrameworkException{
 	}
 	
 	/**
-	 * 
 	 * @param message Details about the exception or custom message
 	 * @param cause Pass the enriched stacktrace or customised stacktrace
 	 */

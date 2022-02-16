@@ -15,9 +15,9 @@ public final class AmazonHamburgerMenuPage extends BasePage {
 		return this;
 	}
 
-	public AmazonLaptopPage clickOnSubMenuItem(String menutext) {
-		click(By.xpath(DynamicXpathUtils.getXpath(linkSubMenu, menutext)), WaitStrategy.CLICKABLE, menutext);
-		if(menutext.contains("Laptops")) {
+	public AmazonLaptopPage clickOnSubMenuItem(String menuItem) {
+		click(By.xpath(DynamicXpathUtils.getXpath(linkSubMenu, menuItem)), WaitStrategy.CLICKABLE, menuItem);
+		if(menuItem.contains("Laptops")) {
 			return new AmazonLaptopPage();
 		}
 		return null;

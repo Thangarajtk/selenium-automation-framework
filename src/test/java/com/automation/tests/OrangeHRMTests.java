@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.automation.annotations.FrameworkAnnotation;
 import com.automation.base.BaseTest;
+import com.automation.constants.StringConstants;
 import com.automation.enums.CategoryType;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public final class OrangeHRMTests extends BaseTest {
 				.clickWelcome().clickLogout()
 				.getTitle();
 
-		Assertions.assertThat(title).isEqualTo("OrangeHRM");
+		Assertions.assertThat(title).isEqualTo(StringConstants.ORANGEHRM_PAGE_TITLE);
 	}
 	
 	

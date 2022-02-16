@@ -18,20 +18,22 @@ public final class WaitFactory {
 
 	public static WebElement performExplicitWait(WaitStrategy waitstrategy, By by) {
 		WebElement element = null;
-		if(waitstrategy == WaitStrategy.CLICKABLE) {
-			element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
-					.until(ExpectedConditions.elementToBeClickable(by));
-		}
-		else if(waitstrategy == WaitStrategy.PRESENCE) {
-			element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
-					.until(ExpectedConditions.presenceOfElementLocated(by));
-		}
-		else if(waitstrategy == WaitStrategy.VISIBLE) {
-			element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
-					.until(ExpectedConditions.visibilityOfElementLocated(by));
-		}
-		else if(waitstrategy == WaitStrategy.NONE) {
-			element = DriverManager.getDriver().findElement(by);
+		switch (waitstrategy) {
+			case CLICKABLE:
+				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
+						.until(ExpectedConditions.elementToBeClickable(by));
+				break;
+			case PRESENCE:
+				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
+						.until(ExpectedConditions.presenceOfElementLocated(by));
+				break;
+			case VISIBLE:
+				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.getExplicitWait()))
+						.until(ExpectedConditions.visibilityOfElementLocated(by));
+				break;
+			case NONE:
+				element = DriverManager.getDriver().findElement(by);
+				break;
 		}
 		return element;
 	}

@@ -5,7 +5,6 @@ import com.automation.utils.configloader.PropertyUtils;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.io.File;
 
 /**
@@ -21,13 +20,11 @@ public final class FrameworkConstants {
     @Getter
     private static final int explicitWait = 10;
     @Getter
-    private static final String resourcesPath = PROJECT_PATH + "/src/test/resources";
-    @Getter
-    private static final String chromeDriverPath = getResourcesPath() + "/executables/chromedriver.exe";
+    private static final String resourcesPath = PROJECT_PATH + File.separator + "src/test/resources";
     @Getter
     private static final String propertiesFilePath = getResourcesPath() + File.separator + "config/config.properties";
     @Getter
-    private static final String jsonConfigFilePath = getResourcesPath() + File.separator + "config/config.json";
+    private static final String jsonConfigFilePath = getResourcesPath() + File.separator + "config" + File.separator + "config.json";
     @Getter
     private static final String extentReportFolderPath = PROJECT_PATH + File.separator + "extent-test-output/";
     @Getter
