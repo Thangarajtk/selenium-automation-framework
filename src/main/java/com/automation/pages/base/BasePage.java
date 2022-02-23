@@ -41,5 +41,4 @@ public class BasePage {
         return DriverManager.getDriver().getTitle();
     }
 
-
 }
