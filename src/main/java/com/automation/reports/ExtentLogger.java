@@ -1,7 +1,6 @@
 package com.automation.reports;
 
-import com.automation.enums.ConfigProperties;
-import com.automation.utils.configloader.PropertyUtils;
+import com.automation.config.ConfigFactory;
 import com.automation.utils.screenshot.ScreenshotService;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 public final class ExtentLogger {
 
 	public static void pass(String message) {
-		if (PropertyUtils.get(ConfigProperties.PASSED_STEP_SCREENSHOTS).equalsIgnoreCase("yes")) {
+		if (ConfigFactory.getConfig().passed_step_screenshots()) {
 			ExtentManager.getExtentTest().pass(message,
 					MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotService.getScreenshotAsBase64()).build());
 		} else {
@@ -23,7 +22,7 @@ public final class ExtentLogger {
 	}
 
 	public static void fail(String message, Throwable t) {
-		if (PropertyUtils.get(ConfigProperties.FAILED_STEP_SCREENSHOTS).equalsIgnoreCase("yes")) {
+		if (ConfigFactory.getConfig().failed_step_screenshots()) {
 			ExtentManager.getExtentTest().fail(MarkupHelper.createLabel(message, ExtentColor.RED))
 					.fail(MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotService.getScreenshotAsBase64()).build())
 					.fail(t);
@@ -33,7 +32,7 @@ public final class ExtentLogger {
 	}
 
 	public static void skip(String message) {
-		if (PropertyUtils.get(ConfigProperties.SKIPPED_STEP_SCREENSHOTS).equalsIgnoreCase("yes")) {
+		if (ConfigFactory.getConfig().skipped_step_screenshots()) {
 			ExtentManager.getExtentTest().skip(message,
 					MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotService.getScreenshotAsBase64()).build());
 		} else {

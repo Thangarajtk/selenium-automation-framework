@@ -1,5 +1,6 @@
 package com.automation.factories;
 
+import com.automation.config.ConfigFactory;
 import com.automation.enums.BrowserType;
 import com.automation.enums.ConfigJson;
 import com.automation.enums.ConfigProperties;
@@ -23,11 +24,11 @@ public final class DriverFactory {
 
     public static WebDriver getDriver(BrowserType browser, String version) throws MalformedURLException {
 
-        String runmode = PropertyUtils.get(ConfigProperties.RUNMODE);
+        String runMode = ConfigFactory.getConfig().runmode();
 
         switch (browser) {
             case CHROME:
-                if (runmode.equalsIgnoreCase("remote")) {
+                if (runMode.equalsIgnoreCase("remote")) {
                     DesiredCapabilities cap = new DesiredCapabilities();
                     cap.setBrowserName(String.valueOf(BrowserType.CHROME));
                     cap.setVersion(version);
@@ -37,7 +38,7 @@ public final class DriverFactory {
                     return new ChromeDriver();
                 }
             case FIREFOX:
-                if (runmode.equalsIgnoreCase("remote")) {
+                if (runMode.equalsIgnoreCase("remote")) {
                     DesiredCapabilities cap = new DesiredCapabilities();
                     cap.setBrowserName(String.valueOf(BrowserType.FIREFOX));
                     cap.setVersion(version);
@@ -47,7 +48,7 @@ public final class DriverFactory {
                     return new FirefoxDriver();
                 }
             case EDGE:
-                if (runmode.equalsIgnoreCase("remote")) {
+                if (runMode.equalsIgnoreCase("remote")) {
                     DesiredCapabilities cap = new DesiredCapabilities();
                     cap.setBrowserName(String.valueOf(BrowserType.EDGE));
                     cap.setVersion(version);

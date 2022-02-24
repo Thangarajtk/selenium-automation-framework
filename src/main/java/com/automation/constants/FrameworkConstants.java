@@ -1,10 +1,10 @@
 package com.automation.constants;
 
-import com.automation.enums.ConfigProperties;
-import com.automation.utils.configloader.PropertyUtils;
+import com.automation.config.ConfigFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import java.io.File;
 
 /**
@@ -46,7 +46,7 @@ public final class FrameworkConstants {
     }
 
     private static String createReportPath() {
-        if (PropertyUtils.get(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")) {
+        if (ConfigFactory.getConfig().overridereports().equalsIgnoreCase("no")) {
             return getExtentReportFolderPath() + File.separator + System.currentTimeMillis() + File.separator + "index.html";
         } else {
             return getExtentReportFolderPath() + File.separator + "index.html";

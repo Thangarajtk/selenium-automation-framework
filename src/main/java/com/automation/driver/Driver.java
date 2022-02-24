@@ -1,13 +1,12 @@
 package com.automation.driver;
 
-import java.util.Objects;
-
+import com.automation.config.ConfigFactory;
 import com.automation.enums.BrowserType;
 import com.automation.factories.DriverFactory;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import com.automation.enums.ConfigProperties;
-import com.automation.utils.configloader.PropertyUtils;
+
+import java.util.Objects;
 
 /**
  *  Driver class is responsible for invoking and closing the browsers.
@@ -23,7 +22,7 @@ public final class Driver {
 		if (Objects.isNull(DriverManager.getDriver())) {
 			DriverManager.setDriver(DriverFactory.getDriver(BrowserType.valueOf(browser.toUpperCase()), version));
 		}
-		DriverManager.getDriver().get(PropertyUtils.get(ConfigProperties.URL));
+		DriverManager.getDriver().get(ConfigFactory.getConfig().url());
 	}
 
 	public static void quitDriver() {
