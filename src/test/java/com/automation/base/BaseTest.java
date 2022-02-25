@@ -1,22 +1,23 @@
 package com.automation.base;
 
-import java.util.Map;
-
+import com.automation.zerocell.TestData;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-
 import com.automation.driver.Driver;
 
-public class BaseTest {
+import java.util.Map;
 
-    protected BaseTest() {
-    }
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class BaseTest {
 
     @BeforeMethod
     protected void setUp(Object[] data) throws Exception {
-        Map<String, String> map = (Map<String, String>) data[0];
-        System.out.println(map);
-        Driver.initDriver(map.get("browser"), map.get("version"));
+        TestData testData = (TestData) data[0];
+        System.out.println(testData);
+//        Driver.initDriver(map.get("browser"), map.get("version"));
+        Driver.initDriver(testData.getBrowser(), testData.getVersion());
     }
 
     @AfterMethod

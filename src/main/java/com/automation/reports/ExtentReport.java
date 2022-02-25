@@ -30,7 +30,7 @@ public final class ExtentReport {
 				extentReports.setSystemInfo("Environment", "Web Automation - Selenium");
 				extentReports.setSystemInfo("User Name", System.getProperty("user.name"));
 				extentSparkReporter.config().setDocumentTitle("HTML Report");
-				extentSparkReporter.config().setReportName("Mobile Automation Test");
+				extentSparkReporter.config().setReportName("Web Automation Testing");
 				extentSparkReporter.config().setTheme(Theme.DARK);
 			}
 		} catch (Exception e) {

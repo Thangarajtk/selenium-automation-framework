@@ -27,6 +27,7 @@
 		<testng-version>6.14.3</testng-version>
 		<test-data-supplier>1.9.7</test-data-supplier>
 		<webdrivermanager-version>5.0.3</webdrivermanager-version>
+		<zerocell>0.5.1</zerocell>
 	</properties>
 
 	<build>
@@ -146,6 +147,14 @@
 			<artifactId>owner</artifactId>
 			<version>${owner}</version>
 		</dependency>
-    </dependencies>
+
+		<!-- https://mvnrepository.com/artifact/com.creditdatamw.labs/zerocell-core -->
+		<dependency>
+			<groupId>com.creditdatamw.labs</groupId>
+			<artifactId>zerocell-core</artifactId>
+			<version>${zerocell}</version>
+		</dependency>
+
+	</dependencies>
 
 </project>

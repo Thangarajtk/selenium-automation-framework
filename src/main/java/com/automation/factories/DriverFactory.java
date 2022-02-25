@@ -3,10 +3,7 @@ package com.automation.factories;
 import com.automation.config.ConfigFactory;
 import com.automation.enums.BrowserType;
 import com.automation.enums.ConfigJson;
-import com.automation.enums.ConfigProperties;
 import com.automation.exceptions.BrowserInvocationFailedException;
-import static com.automation.utils.configloader.JsonUtils.*;
-import com.automation.utils.configloader.PropertyUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -16,8 +13,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static com.automation.utils.configloader.JsonUtils.get;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DriverFactory {
