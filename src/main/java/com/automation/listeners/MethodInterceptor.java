@@ -20,10 +20,10 @@ public class MethodInterceptor implements IMethodInterceptor {
         List<IMethodInstance> result = new ArrayList<>();
 
         for (IMethodInstance method : methods) {
-            for (Map<String, String> stringStringMap : list) {
-                if (method.getMethod().getMethodName().equalsIgnoreCase(stringStringMap.get("TestName")) &&
-                        stringStringMap.get("Execute").equalsIgnoreCase("yes")) {
-                    method.getMethod().setDescription((stringStringMap.get("Description")));
+            for (Map<String, String> map : list) {
+                if (method.getMethod().getMethodName().equalsIgnoreCase(map.get("TestName")) &&
+                        map.get("Execute").equalsIgnoreCase("yes")) {
+                    method.getMethod().setDescription((map.get("Description")));
                     result.add(method);
                 }
             }

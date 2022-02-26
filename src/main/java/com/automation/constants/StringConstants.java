@@ -8,4 +8,5 @@ public final class StringConstants {
 
     public static final String ORANGEHRM_PAGE_TITLE = "OrangeHRM";
     public static final String GOOGLE_SEARCH_RESULTS_PAGE_TITLE = "Google Search";
+    public static final String SELECTED_MENU_ITEM = "Laptops";
 }

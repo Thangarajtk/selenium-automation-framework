@@ -1,5 +1,6 @@
 package com.automation.pages.amazon;
 
+import com.automation.constants.StringConstants;
 import com.automation.pages.base.BasePage;
 import org.openqa.selenium.By;
 import com.automation.enums.WaitStrategy;
@@ -17,7 +18,7 @@ public final class AmazonHamburgerMenuPage extends BasePage {
 
 	public AmazonLaptopPage clickOnSubMenuItem(String menuItem) {
 		click(By.xpath(DynamicXpathUtils.getXpath(linkSubMenu, menuItem)), WaitStrategy.CLICKABLE, menuItem);
-		if(menuItem.contains("Laptops")) {
+		if(menuItem.contains(StringConstants.SELECTED_MENU_ITEM)) {
 			return new AmazonLaptopPage();
 		}
 		return null;

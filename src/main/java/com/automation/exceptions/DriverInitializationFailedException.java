@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.automation.exceptions;
 
 public class DriverInitializationFailedException extends FrameworkException {

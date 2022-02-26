@@ -1,17 +1,15 @@
 package com.automation.utils.dataprovider;
 
+import com.automation.constants.FrameworkConstants;
+import com.automation.zerocell.ExcelReader;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import org.testng.annotations.DataProvider;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
-
-import com.automation.constants.FrameworkConstants;
-import com.automation.zerocell.ExcelReader;
-import com.automation.zerocell.TestData;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import org.testng.annotations.DataProvider;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DataProviderUtils {
