@@ -3,13 +3,13 @@
 version: "3"
 services:
   selenium-hub:
-    image: selenium/hub:latest
+    image: selenium/hub:4.1
     container_name: selenium-hub
     restart: always
     ports:
       - "4444:4444"
-  chrome:
-    image: selenium/node-chrome-debug:latest
+  chrome_98:
+    image: selenium/node-chrome:98.0
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -17,9 +17,8 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-    restart: on-failure:3
-  chrome_79:
-    image: selenium/node-chrome-debug:3.141.59-zinc
+  firefox_97:
+    image: selenium/node-firefox:97.0
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -27,15 +26,4 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-    restart: on-failure:3 
-  firefox:
-    image: selenium/node-firefox-debug:latest
-    volumes:
-      - /dev/shm:/dev/shm
-    depends_on:
-      - selenium-hub
-    environment:
-      - HUB_HOST=selenium-hub
-      - HUB_PORT=4444
-    restart: on-failure:3   
          
