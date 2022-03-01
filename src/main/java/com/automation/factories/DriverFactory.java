@@ -9,8 +9,10 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -29,20 +31,18 @@ public final class DriverFactory {
         switch (browser) {
             case CHROME:
                 if (runMode.equalsIgnoreCase("remote")) {
-                    DesiredCapabilities cap = new DesiredCapabilities();
-                    cap.setBrowserName(String.valueOf(BrowserType.CHROME));
-                    cap.setVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), cap);
+                    ChromeOptions browserOptions = new ChromeOptions();
+                    browserOptions.setBrowserVersion(version);
+                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
                 } else {
                     WebDriverManager.chromedriver().setup();
                     return new ChromeDriver();
                 }
             case FIREFOX:
                 if (runMode.equalsIgnoreCase("remote")) {
-                    DesiredCapabilities cap = new DesiredCapabilities();
-                    cap.setBrowserName(String.valueOf(BrowserType.FIREFOX));
-                    cap.setVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), cap);
+                    FirefoxOptions browserOptions = new FirefoxOptions();
+                    browserOptions.setBrowserVersion(version);
+                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
                 } else {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
