@@ -11,11 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -49,10 +48,9 @@ public final class DriverFactory {
                 }
             case EDGE:
                 if (runMode.equalsIgnoreCase("remote")) {
-                    DesiredCapabilities cap = new DesiredCapabilities();
-                    cap.setBrowserName(String.valueOf(BrowserType.EDGE));
-                    cap.setVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), cap);
+                    EdgeOptions browserOptions = new EdgeOptions();
+                    browserOptions.setBrowserVersion(version);
+                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
                 } else {
                     WebDriverManager.edgedriver().setup();
                     return new EdgeDriver();
