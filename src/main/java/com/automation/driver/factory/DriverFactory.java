@@ -1,60 +1,42 @@
 package com.automation.driver.factory;
 
 import com.automation.config.ConfigFactory;
+import com.automation.driver.localdriver.ChromeDriverManager;
+import com.automation.driver.localdriver.EdgeDriverManager;
+import com.automation.driver.localdriver.FirefoxDriverManager;
+import com.automation.driver.remotedriver.RemoteDriverManager;
 import com.automation.enums.BrowserType;
-import com.automation.enums.ConfigJson;
+import com.automation.enums.RunType;
 import com.automation.exceptions.BrowserInvocationFailedException;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.URL;
-
-import static com.automation.utils.configloader.JsonUtils.get;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DriverFactory {
 
-    @SneakyThrows
     public static WebDriver getDriver(BrowserType browser, String version) {
 
-        String runMode = ConfigFactory.getConfig().runmode();
+        RunType runMode = ConfigFactory.getConfig().runmode();
 
         switch (browser) {
             case CHROME:
-                if (runMode.equalsIgnoreCase("remote")) {
-                    ChromeOptions browserOptions = new ChromeOptions();
-                    browserOptions.setBrowserVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
+                if (runMode == RunType.REMOTE) {
+                    return new RemoteDriverManager().getDriver(browser, version);
                 } else {
-                    WebDriverManager.chromedriver().setup();
-                    return new ChromeDriver();
+                    return new ChromeDriverManager().getDriver();
                 }
             case FIREFOX:
-                if (runMode.equalsIgnoreCase("remote")) {
-                    FirefoxOptions browserOptions = new FirefoxOptions();
-                    browserOptions.setBrowserVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
+                if (runMode == RunType.REMOTE) {
+                    return new RemoteDriverManager().getDriver(browser, version);
                 } else {
-                    WebDriverManager.firefoxdriver().setup();
-                    return new FirefoxDriver();
+                    return new FirefoxDriverManager().getDriver();
                 }
             case EDGE:
-                if (runMode.equalsIgnoreCase("remote")) {
-                    EdgeOptions browserOptions = new EdgeOptions();
-                    browserOptions.setBrowserVersion(version);
-                    return new RemoteWebDriver(new URL(get(ConfigJson.URL)), browserOptions);
+                if (runMode == RunType.REMOTE) {
+                    return new RemoteDriverManager().getDriver(browser, version);
                 } else {
-                    WebDriverManager.edgedriver().setup();
-                    return new EdgeDriver();
+                    return new EdgeDriverManager().getDriver();
                 }
             default:
                 throw new BrowserInvocationFailedException("Browser type " + browser + " is not found. Please check the browser name");

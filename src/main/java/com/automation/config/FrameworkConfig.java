@@ -1,5 +1,6 @@
 package com.automation.config;
 
+import com.automation.enums.RunType;
 import org.aeonbits.owner.Config;
 
 @Config.Sources(value = "file:${user.dir}/src/test/resources/config/config.properties")
@@ -19,5 +20,7 @@ public interface FrameworkConfig extends Config {
 
     int retry_count();
 
-    String runmode();
+    @DefaultValue("LOCAL")
+    @ConverterClass(StringToRunTypeConverter.class)
+    RunType runmode();
 }
