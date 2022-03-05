@@ -13,11 +13,19 @@ import java.util.Properties;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class PropertyUtils {
 
-	private static final Properties property = new Properties();
+	private static Properties property;
+
+	// Singleton design pattern
+	public static Properties getInstance() {
+		if (property == null) {
+			property = new Properties();
+		}
+		return property;
+	}
 
 	static void loadProperties(String propertyFilePath) {
 		Exceptions.wrap(e -> new PropertyFileUsageException("Exception occurred while loading Property file in the specified path - " + propertyFilePath))
-				.run(() -> property.load(new FileInputStream(propertyFilePath)));
+				.run(() -> getInstance().load(new FileInputStream(propertyFilePath)));
 	}
 
 	public static String get(ConfigProperties key) {

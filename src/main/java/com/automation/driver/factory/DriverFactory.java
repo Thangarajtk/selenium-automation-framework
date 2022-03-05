@@ -1,4 +1,4 @@
-package com.automation.factories;
+package com.automation.driver.factory;
 
 import com.automation.config.ConfigFactory;
 import com.automation.enums.BrowserType;
@@ -7,6 +7,7 @@ import com.automation.exceptions.BrowserInvocationFailedException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,7 +16,6 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.automation.utils.configloader.JsonUtils.get;
@@ -23,7 +23,8 @@ import static com.automation.utils.configloader.JsonUtils.get;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DriverFactory {
 
-    public static WebDriver getDriver(BrowserType browser, String version) throws MalformedURLException {
+    @SneakyThrows
+    public static WebDriver getDriver(BrowserType browser, String version) {
 
         String runMode = ConfigFactory.getConfig().runmode();
 

@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DriverManager {
 
-	public static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
+	private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
 	public static WebDriver getDriver() {
 		return threadLocalDriver.get();

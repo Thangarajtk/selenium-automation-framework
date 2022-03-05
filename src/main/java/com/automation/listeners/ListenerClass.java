@@ -28,6 +28,7 @@ public class ListenerClass implements ITestListener, ISuiteListener {
                 .author());
         ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotation.class)
                 .category());
+        ExtentLogger.pass("Test - <b>" + result.getMethod().getMethodName() + "</b> is started");
     }
 
     @Override
