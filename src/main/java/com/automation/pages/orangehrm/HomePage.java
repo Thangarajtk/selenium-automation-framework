@@ -5,18 +5,18 @@ import org.openqa.selenium.By;
 
 import com.automation.enums.WaitStrategy;
 
-public final class OrangeHRMHomePage extends BasePage {
+public final class HomePage extends BasePage {
 	
 	private final By linkWelcome = By.id("welcome");
 	private final By linkLogout = By.xpath("//a[text()='Logout']");
 
-	public OrangeHRMHomePage clickWelcome() {
+	public HomePage clickWelcome() {
 		click(linkWelcome, WaitStrategy.PRESENCE, "Welcome link");
 		return this;
 	}
 
-	public OrangeHRMLoginPage clickLogout() {
+	public LoginPage clickLogout() {
 		click(linkLogout, WaitStrategy.CLICKABLE, "Logout button");
-		return new OrangeHRMLoginPage();
+		return new LoginPage();
 	}
 }

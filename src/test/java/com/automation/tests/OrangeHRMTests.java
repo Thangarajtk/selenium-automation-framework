@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
-import com.automation.pages.orangehrm.OrangeHRMLoginPage;
+import com.automation.pages.orangehrm.LoginPage;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class OrangeHRMTests extends BaseTest {
@@ -20,7 +20,7 @@ public final class OrangeHRMTests extends BaseTest {
 	@FrameworkAnnotation(author = {"User1", "User2"},
 			category = {CategoryType.REGRESSION, CategoryType.SANITY})
 	public void loginLogoutTest(Map<String,String> data) {
-		String title = new OrangeHRMLoginPage()
+		String title = new LoginPage()
 				.enterUserName(data.get("username")).enterPassWord(data.get("password"))
 				.clickLogin()
 				.clickWelcome().clickLogout()

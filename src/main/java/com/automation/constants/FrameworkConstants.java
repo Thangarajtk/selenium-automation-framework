@@ -4,11 +4,11 @@ import com.automation.config.ConfigFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.io.File;
 
 /**
- * Holds all the constant values used within the framework. If some value needs to be changed often, then it should be stored in the property files
+ * Holds all the constant values used within the framework.
+ * If some value needs to be changed often, then it should be stored in the property files
  *
  * @author Administrator
  */
@@ -46,7 +46,7 @@ public final class FrameworkConstants {
     }
 
     private static String createReportPath() {
-        if (ConfigFactory.getConfig().overridereports().equalsIgnoreCase("no")) {
+        if (ConfigFactory.getConfig().override_report().equalsIgnoreCase("no")) {
             return getExtentReportFolderPath() + File.separator + System.currentTimeMillis() + File.separator + "index.html";
         } else {
             return getExtentReportFolderPath() + File.separator + "index.html";

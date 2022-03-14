@@ -8,7 +8,7 @@ public interface FrameworkConfig extends Config {
 
     String url();
 
-    String overridereports();
+    String override_report();
 
     boolean passed_step_screenshots();
 
@@ -22,5 +22,5 @@ public interface FrameworkConfig extends Config {
 
     @DefaultValue("LOCAL")
     @ConverterClass(StringToRunTypeConverter.class)
-    RunType runmode();
+    RunType run_mode();
 }
