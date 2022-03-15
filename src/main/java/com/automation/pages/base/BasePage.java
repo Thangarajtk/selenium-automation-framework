@@ -4,7 +4,7 @@ import com.automation.factories.WaitFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import com.automation.driver.DriverManager;
+import com.automation.driver.manager.DriverManager;
 import com.automation.enums.WaitStrategy;
 import com.automation.reports.ExtentLogger;
 import org.openqa.selenium.support.PageFactory;

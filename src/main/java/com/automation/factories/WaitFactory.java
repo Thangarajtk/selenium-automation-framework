@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.automation.driver.DriverManager;
+import com.automation.driver.manager.DriverManager;
 import com.automation.enums.WaitStrategy;
 
 import java.time.Duration;

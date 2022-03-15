@@ -1,4 +1,4 @@
-package com.automation.driver.localdriver;
+package com.automation.driver.manager;
 
 import org.openqa.selenium.WebDriver;
 

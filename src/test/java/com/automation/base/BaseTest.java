@@ -1,5 +1,6 @@
 package com.automation.base;
 
+import com.automation.enums.BrowserType;
 import com.automation.zerocell.TestData;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,9 @@ import com.automation.driver.Driver;
 public class BaseTest {
 
     @BeforeMethod
-    protected void setUp(Object[] data) throws Exception {
+    protected void setUp(Object[] data) {
         TestData testData = (TestData) data[0];
-        System.out.println(testData);
-        Driver.initDriver(testData.getBrowser(), testData.getVersion());
+        Driver.initDriver(BrowserType.valueOf(testData.getBrowser().toUpperCase()));
     }
 
     @AfterMethod

@@ -1,6 +1,7 @@
 package com.automation.driver;
 
 import com.automation.config.ConfigFactory;
+import com.automation.driver.manager.DriverManager;
 import com.automation.enums.BrowserType;
 import com.automation.driver.factory.DriverFactory;
 import lombok.AccessLevel;
@@ -18,9 +19,9 @@ import java.util.Objects;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class Driver {
 
-	public static void initDriver(String browser, String version) {
+	public static void initDriver(BrowserType browser) {
 		if (Objects.isNull(DriverManager.getDriver())) {
-			DriverManager.setDriver(DriverFactory.getDriver(BrowserType.valueOf(browser.toUpperCase()), version));
+			DriverManager.setDriver(DriverFactory.getDriver(browser));
 		}
 		DriverManager.getDriver().get(ConfigFactory.getConfig().url());
 	}
