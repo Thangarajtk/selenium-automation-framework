@@ -12,18 +12,16 @@ import org.openqa.selenium.WebDriver;
 public final class LocalDriverFactory {
 
     public static WebDriver getDriver(BrowserType browserType) {
-        WebDriver driver = (isChromeBrowser(browserType)) ? new ChromeManager().getDriver() :
-                (isFirefoxBrowser(browserType)) ?
-                        new FirefoxManager().getDriver() : new EdgeManager().getDriver();
-
-        return driver;
+        return isChromeBrowser(browserType) ? new ChromeManager().getDriver() :
+                isFirefoxBrowser(browserType) ? new FirefoxManager().getDriver() :
+                        new EdgeManager().getDriver();
     }
 
-    static boolean isChromeBrowser(BrowserType browserType) {
+    private static boolean isChromeBrowser(BrowserType browserType) {
         return browserType == BrowserType.CHROME;
     }
 
-    static boolean isFirefoxBrowser(BrowserType browserType) {
+    private static boolean isFirefoxBrowser(BrowserType browserType) {
         return browserType == BrowserType.FIREFOX;
     }
 

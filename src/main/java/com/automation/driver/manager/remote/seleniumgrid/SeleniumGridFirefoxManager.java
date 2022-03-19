@@ -1,4 +1,4 @@
-package com.automation.driver.manager.remote;
+package com.automation.driver.manager.remote.seleniumgrid;
 
 import com.automation.driver.manager.IDriver;
 import com.automation.enums.ConfigJson;
@@ -11,7 +11,7 @@ import java.net.URL;
 
 import static com.automation.utils.configloader.JsonUtils.get;
 
-public class RemoteFirefoxManager implements IDriver {
+public class SeleniumGridFirefoxManager implements IDriver {
 
     @SneakyThrows
     @Override

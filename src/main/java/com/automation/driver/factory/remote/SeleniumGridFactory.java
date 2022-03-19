@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class RemoteDriverFactory {
+public final class SeleniumGridFactory {
 
     public static WebDriver getDriver(BrowserType browserType) {
         return isChromeBrowser(browserType) ? new SeleniumGridChromeManager().getDriver() :

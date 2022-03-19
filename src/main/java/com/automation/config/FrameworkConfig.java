@@ -23,4 +23,10 @@ public interface FrameworkConfig extends Config {
     @DefaultValue("LOCAL")
     @ConverterClass(StringToRunTypeConverter.class)
     RunType run_mode();
+
+    String remote_mode();
+
+    String seleniumGridUrl();
+
+    String selenoidUrl();
 }
