@@ -1,4 +1,4 @@
-package com.automation.config;
+package com.automation.config.converter;
 
 import com.automation.enums.RunType;
 import org.aeonbits.owner.Converter;

@@ -1,7 +1,13 @@
 package com.automation.config;
 
+import com.automation.config.converter.StringToBrowserRemoteModeTypeConverter;
+import com.automation.config.converter.StringToRunTypeConverter;
+import com.automation.config.converter.StringToUrlConverter;
+import com.automation.enums.BrowserRemoteModeType;
 import com.automation.enums.RunType;
 import org.aeonbits.owner.Config;
+
+import java.net.URL;
 
 @Config.Sources(value = "file:${user.dir}/src/test/resources/config/config.properties")
 public interface FrameworkConfig extends Config {
@@ -24,9 +30,13 @@ public interface FrameworkConfig extends Config {
     @ConverterClass(StringToRunTypeConverter.class)
     RunType run_mode();
 
-    String remote_mode();
+    @DefaultValue("SELENOID")
+    @ConverterClass(StringToBrowserRemoteModeTypeConverter.class)
+    BrowserRemoteModeType remote_mode();
 
-    String seleniumGridUrl();
+    @ConverterClass(StringToUrlConverter.class)
+    URL seleniumGridUrl();
 
-    String selenoidUrl();
+    @ConverterClass(StringToUrlConverter.class)
+    URL selenoidUrl();
 }

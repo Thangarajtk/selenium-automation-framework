@@ -1,21 +1,24 @@
 package com.automation.driver.manager.remote.selenoid;
 
-import com.automation.driver.manager.IDriver;
-import com.automation.enums.ConfigJson;
+import com.automation.config.ConfigFactory;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.URL;
-
-import static com.automation.utils.configloader.JsonUtils.get;
-
-public class SelenoidFirefoxManager implements IDriver {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class SelenoidFirefoxManager {
 
     @SneakyThrows
-    @Override
-    public WebDriver getDriver() {
-        return new RemoteWebDriver(new URL(get(ConfigJson.URL)), new FirefoxOptions());
+    public static WebDriver getDriver() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", "firefox");
+        capabilities.setCapability("browserVersion", "91.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        return new RemoteWebDriver(ConfigFactory.getConfig()
+                .selenoidUrl(), capabilities);
     }
 }

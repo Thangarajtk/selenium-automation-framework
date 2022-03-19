@@ -1,14 +1,12 @@
 package com.automation.driver.manager.local;
 
-import com.automation.driver.manager.IDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
-public class EdgeManager implements IDriver {
+public class EdgeManager {
 
-    @Override
-    public WebDriver getDriver() {
+    public static WebDriver getDriver() {
         WebDriverManager.edgedriver().setup();
         return new EdgeDriver();
     }

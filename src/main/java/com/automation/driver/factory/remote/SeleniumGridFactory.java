@@ -12,9 +12,9 @@ import org.openqa.selenium.WebDriver;
 public final class SeleniumGridFactory {
 
     public static WebDriver getDriver(BrowserType browserType) {
-        return isChromeBrowser(browserType) ? new SeleniumGridChromeManager().getDriver() :
-                isFirefoxBrowser(browserType) ? new SeleniumGridFirefoxManager().getDriver() :
-                        new SeleniumGridEdgeManager().getDriver();
+        return isChromeBrowser(browserType) ? SeleniumGridChromeManager.getDriver() :
+                isFirefoxBrowser(browserType) ? SeleniumGridFirefoxManager.getDriver() :
+                        SeleniumGridEdgeManager.getDriver();
     }
 
     private static boolean isChromeBrowser(BrowserType browserType) {
