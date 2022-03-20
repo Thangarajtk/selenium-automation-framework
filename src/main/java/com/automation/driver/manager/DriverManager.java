@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 /**
  * DriverManager class helps to achieve thread safety for the instance.
- *
  * @author Administrator
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

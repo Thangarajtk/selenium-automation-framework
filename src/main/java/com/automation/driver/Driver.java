@@ -6,7 +6,6 @@ import com.automation.enums.BrowserType;
 import com.automation.driver.factory.DriverFactory;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-
 import java.util.Objects;
 
 /**
