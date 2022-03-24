@@ -2,8 +2,11 @@ package com.automation.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.automation.annotations.FrameworkAnnotation;
 import com.automation.base.BaseTest;
 import com.automation.constants.StringConstants;
+import com.automation.enums.Authors;
+import com.automation.enums.CategoryType;
 import com.automation.pages.googlesearch.GoogleSearchPage;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -13,6 +16,8 @@ import org.testng.annotations.Test;
 public final class GooglePageTests extends BaseTest {
 
     @Test
+    @FrameworkAnnotation(author = {Authors.USER_1},
+            category = {CategoryType.SANITY})
     public void googleSearchTest() {
         String title = new GoogleSearchPage()
                 .performSearch("Automation")

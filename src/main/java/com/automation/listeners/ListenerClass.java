@@ -1,13 +1,10 @@
 package com.automation.listeners;
 
-import org.testng.ISuite;
-import org.testng.ISuiteListener;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
 import com.automation.annotations.FrameworkAnnotation;
+import com.automation.driver.manager.DriverManager;
 import com.automation.reports.ExtentLogger;
 import com.automation.reports.ExtentReport;
+import org.testng.*;
 
 public class ListenerClass implements ITestListener, ISuiteListener {
 
@@ -28,6 +25,8 @@ public class ListenerClass implements ITestListener, ISuiteListener {
                 .author());
         ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotation.class)
                 .category());
+        ExtentReport.addBrowsers();
+        ExtentLogger.info(ExtentReport.getBrowserDetails(DriverManager.getDriver()));
         ExtentLogger.pass("Test - <b>" + result.getMethod().getMethodName() + "</b> is started");
     }
 

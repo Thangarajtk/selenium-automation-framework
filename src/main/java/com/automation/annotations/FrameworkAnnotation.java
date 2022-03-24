@@ -7,6 +7,7 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import com.automation.enums.Authors;
 import com.automation.enums.CategoryType;
 
 /**
@@ -22,7 +23,7 @@ import com.automation.enums.CategoryType;
 @Documented
 public @interface FrameworkAnnotation {
 
-    String[] author();
+    Authors[] author();
 
     CategoryType[] category();
 }
