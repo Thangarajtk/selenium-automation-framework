@@ -24,10 +24,12 @@ public final class Driver {
         DriverData driverData = DriverData.builder()
                 .browserType(browser)
                 .browserRemoteModeType(ConfigFactory.getConfig().remote_mode())
-                .runType(ConfigFactory.getConfig().run_mode())
                 .build();
+
         if (Objects.isNull(DriverManager.getDriver())) {
-            DriverManager.setDriver(DriverFactory.getDriver(driverData));
+            DriverManager.setDriver(DriverFactory
+                    .getDriver(ConfigFactory.getConfig().run_mode())
+                    .getDriver(driverData));
         }
         DriverManager.getDriver().get(ConfigFactory.getConfig().url());
     }

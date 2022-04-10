@@ -1,21 +1,28 @@
 package com.automation.driver.factory;
 
-import com.automation.config.ConfigFactory;
-import com.automation.driver.entity.DriverData;
-import com.automation.driver.factory.local.LocalDriverFactory;
-import com.automation.driver.factory.remote.RemoteDriverFactory;
+import com.automation.driver.IDriver;
+import com.automation.driver.LocalDriver;
+import com.automation.driver.RemoteDriver;
 import com.automation.enums.RunType;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.openqa.selenium.WebDriver;
+
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.function.Supplier;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DriverFactory {
 
-    public static WebDriver getDriver(DriverData driverData) {
+    private static final Map<RunType, Supplier<IDriver>> WEB = new EnumMap<>(RunType.class);
 
-        return (ConfigFactory.getConfig().run_mode() == RunType.REMOTE) ?
-                RemoteDriverFactory.getDriver(driverData.getBrowserRemoteModeType(), driverData.getBrowserType()) :
-                LocalDriverFactory.getDriver(driverData.getBrowserType());
+    static {
+        WEB.put(RunType.LOCAL, LocalDriver::new);
+        WEB.put(RunType.REMOTE, RemoteDriver::new);
+    }
+
+    public static IDriver getDriver(RunType runType) {
+
+        return WEB.get(runType).get();
     }
 }
