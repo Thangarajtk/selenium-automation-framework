@@ -1,7 +1,7 @@
-package com.automation.driver;
+package com.automation.driver.factory.remote;
 
+import com.automation.driver.abstraction.IDriver;
 import com.automation.driver.entity.DriverData;
-import com.automation.driver.factory.remote.RemoteDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 public class RemoteDriver implements IDriver {

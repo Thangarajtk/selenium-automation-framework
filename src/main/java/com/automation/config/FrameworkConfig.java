@@ -9,9 +9,19 @@ import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
-@Config.Sources(value = "file:${user.dir}/src/test/resources/config/config.properties")
+@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.Sources({
+        "system:properties",
+        "system:env",
+        "file:${user.dir}/src/test/resources/config/config.properties",
+        "file:${user.dir}/src/test/resources/config/dev-config.properties",
+        "file:${user.dir}/src/test/resources/config/staging-config.properties"})
 public interface FrameworkConfig extends Config {
 
+    @DefaultValue("staging")
+    String environment();
+
+    @Key("${environment}.url")
     String url();
 
     String override_report();

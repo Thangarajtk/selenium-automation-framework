@@ -1,7 +1,7 @@
 package com.automation.utils.dataprovider;
 
 import com.automation.constants.FrameworkConstants;
-import com.automation.zerocell.ExcelReader;
+import com.automation.utils.zerocell.ExcelReader;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.testng.annotations.DataProvider;

@@ -1,8 +1,8 @@
 package com.automation.driver.factory;
 
-import com.automation.driver.IDriver;
-import com.automation.driver.LocalDriver;
-import com.automation.driver.RemoteDriver;
+import com.automation.driver.abstraction.IDriver;
+import com.automation.driver.factory.local.LocalDriver;
+import com.automation.driver.factory.remote.RemoteDriver;
 import com.automation.enums.RunType;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

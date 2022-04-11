@@ -1,7 +1,7 @@
 package com.automation.base;
 
 import com.automation.enums.BrowserType;
-import com.automation.zerocell.TestData;
+import com.automation.utils.zerocell.TestData;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.testng.annotations.AfterMethod;

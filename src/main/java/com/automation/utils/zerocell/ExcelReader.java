@@ -1,4 +1,4 @@
-package com.automation.zerocell;
+package com.automation.utils.zerocell;
 
 import com.automation.constants.FrameworkConstants;
 import com.creditdatamw.zerocell.Reader;
@@ -14,7 +14,7 @@ public final class ExcelReader {
         return testDataList;
     }
 
-    private static List<TestData> testDataList = null;
+    private static List<TestData> testDataList;
 
     static {
         testDataList = Reader.of(TestData.class)

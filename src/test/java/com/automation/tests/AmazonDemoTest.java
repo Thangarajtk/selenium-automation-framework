@@ -5,7 +5,7 @@ import com.automation.base.BaseTest;
 import com.automation.enums.Authors;
 import com.automation.enums.CategoryType;
 import com.automation.pages.amazon.AmazonHomePage;
-import com.automation.zerocell.TestData;
+import com.automation.utils.zerocell.TestData;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.assertj.core.api.Assertions;
@@ -20,7 +20,8 @@ public final class AmazonDemoTest extends BaseTest {
     public void amazonTest(TestData data) {
         String title = new AmazonHomePage().clickHamburger()
                 .clickComputer()
-                .clickOnSubMenuItem(data.getMenuToSelect()).getTitle();
+                .clickOnSubMenuItem(data.getMenuToSelect())
+                .getTitle();
 
         Assertions.assertThat(title).isNotNull();
     }
