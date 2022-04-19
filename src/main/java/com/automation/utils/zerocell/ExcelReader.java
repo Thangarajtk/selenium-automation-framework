@@ -14,7 +14,7 @@ public final class ExcelReader {
         return testDataList;
     }
 
-    private static List<TestData> testDataList;
+    private static final List<TestData> testDataList;
 
     static {
         testDataList = Reader.of(TestData.class)

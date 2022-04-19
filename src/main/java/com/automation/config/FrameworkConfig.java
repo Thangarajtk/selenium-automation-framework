@@ -9,7 +9,7 @@ import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
-@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.LoadPolicy(Config.LoadType.MERGE) // Search for the provided key from any of the file and system variable mentioned in Config.Sources
 @Config.Sources({
         "system:properties",
         "system:env",
