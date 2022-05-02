@@ -6,7 +6,6 @@ import com.automation.config.converter.StringToUrlConverter;
 import com.automation.enums.BrowserRemoteModeType;
 import com.automation.enums.RunType;
 import org.aeonbits.owner.Config;
-
 import java.net.URL;
 
 @Config.LoadPolicy(Config.LoadType.MERGE) // Search for the provided key from any of the file and system variable mentioned in Config.Sources
@@ -14,8 +13,10 @@ import java.net.URL;
         "system:properties",
         "system:env",
         "file:${user.dir}/src/test/resources/config/config.properties",
-        "file:${user.dir}/src/test/resources/config/dev-config.properties",
-        "file:${user.dir}/src/test/resources/config/staging-config.properties"})
+//        "file:${user.dir}/src/test/resources/config/dev-config.properties",
+//        "file:${user.dir}/src/test/resources/config/staging-config.properties",
+        "file:${user.dir}/src/test/resources/config/${myConfig}.properties"
+})
 public interface FrameworkConfig extends Config {
 
     @DefaultValue("staging")
