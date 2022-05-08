@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.util.Map;
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class SelenoidChromeManager {
 
@@ -15,8 +17,11 @@ public final class SelenoidChromeManager {
     public static WebDriver getDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
+//        capabilities.setCapability("browserVersion", "101.0");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
         return new RemoteWebDriver(ConfigFactory.getConfig()
                 .selenoidUrl(), capabilities);
     }

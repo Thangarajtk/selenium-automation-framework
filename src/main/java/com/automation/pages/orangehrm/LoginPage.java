@@ -8,23 +8,28 @@ import com.automation.utils.decoder.DecodeUtils;
 
 public final class LoginPage extends BasePage {
 
-	private final By textboxUsername = By.id("txtUsername");
-	private final By textboxPassword = By.xpath("//input[@id='txtPassword' and @type='password']");
-	private final By buttonLogin = By.id("btnLogin");
+	private static final By TEXT_BOX_USERNAME = By.id("txtUsername");
+	private static final By TEXT_BOX_PASSWORD = By.xpath("//input[@id='txtPassword' and @type='password']");
+	private static final By BUTTON_LOGIN = By.id("btnLogin");
 
-	public LoginPage enterUserName(String username) {
-		
-		sendKeys(textboxUsername, username, WaitStrategy.PRESENCE, "Username");
+	private LoginPage enterUserName(String username) {
+		sendKeys(TEXT_BOX_USERNAME, username, WaitStrategy.PRESENCE, "Username");
 		return this;
 	}
 
-	public LoginPage enterPassWord(String password) {
-		sendKeys(textboxPassword, DecodeUtils.getDecodedString(password), WaitStrategy.PRESENCE, "Password");
+	private LoginPage enterPassWord(String password) {
+		sendKeys(TEXT_BOX_PASSWORD, DecodeUtils.getDecodedString(password), WaitStrategy.PRESENCE, "Password");
 		return this;
 	}
-	public HomePage clickLogin() {
-		click(buttonLogin, WaitStrategy.PRESENCE, "Login Button");
+	private HomePage clickLogin() {
+		click(BUTTON_LOGIN, WaitStrategy.PRESENCE, "Login Button");
 		return new HomePage();
+	}
+
+	public HomePage loginToApplication(String username, String password) {
+		return enterUserName(username)
+				.enterPassWord(password)
+				.clickLogin();
 	}
 
 	public String getTitle() {
