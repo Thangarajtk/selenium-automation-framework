@@ -29,6 +29,8 @@ Test automation framework for web applications using Selenium 4 and Java
 ## :pushpin: Key Features
 :point_right: Supports cross browser testing in local and remote.
 
+:point_right: Ability to execute tests in Selenium Grid or Selenoid using Docker.
+
 :point_right: Page object model design.
 
 :point_right: Supports parallel and sequential execution of tests.
@@ -44,6 +46,9 @@ Test automation framework for web applications using Selenium 4 and Java
 :point_right: Supports utilities to read test data from excel workbook and provides data to each test based on the test name.
 
 :point_right: Ability to configure and schedule jenkins job to build triggers automatically
+
+## :rocket: Selenoid Quick Start Guide
+[Click here for Selenoid Quick Start Guide](https://aerokube.com/selenoid/latest/)
 
 ## Docker commands
 
