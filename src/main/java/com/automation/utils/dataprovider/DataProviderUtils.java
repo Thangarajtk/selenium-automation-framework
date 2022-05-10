@@ -20,7 +20,7 @@ public final class DataProviderUtils {
     public static Object[] getData(Method method) {
         String testName = method.getName();
         if (list.isEmpty()) {
-            list = ExcelUtils.getTestDetails(FrameworkConstants.getIterationDataSheet());
+            list = ExcelUtils.getTestDetails(FrameworkConstants.DATA_SHEET);
         }
         List<Map<String, String>> smallList = new ArrayList<>(list);
 

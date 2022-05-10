@@ -18,8 +18,8 @@ public final class ExcelReader {
 
     static {
         testDataList = Reader.of(TestData.class)
-                .from(new File(FrameworkConstants.getExcelPath()))
-                .sheet(FrameworkConstants.getIterationDataSheet())
+                .from(new File(FrameworkConstants.TEST_DATA_EXCEL_PATH))
+                .sheet(FrameworkConstants.DATA_SHEET)
                 .skipHeaderRow(true)
                 .list();
     }

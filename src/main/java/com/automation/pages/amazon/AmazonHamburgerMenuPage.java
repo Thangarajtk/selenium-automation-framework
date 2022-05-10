@@ -8,8 +8,8 @@ import com.automation.utils.dynamicselector.DynamicXpathUtils;
 
 public final class AmazonHamburgerMenuPage extends BasePage {
 
-	private String linkComputers = "//div[text()='Mobiles, Computers']/parent::a";
-	private String linkSubMenu = "//a[text()='%s']";
+	private final String linkComputers = "//div[text()='Mobiles, Computers']/parent::a";
+	private final String linkSubMenu = "//a[text()='%s']";
 
 	public AmazonHamburgerMenuPage clickComputer() {
 		click(By.xpath(linkComputers), WaitStrategy.CLICKABLE, "Mobiles and Computers");

@@ -20,7 +20,7 @@ public class JsonUtils {
 
     static {
         try {
-            map = new ObjectMapper().readValue(new File(FrameworkConstants.getJsonConfigFilePath()),
+            map = new ObjectMapper().readValue(new File(FrameworkConstants.JSON_CONFIG_FILE_PATH),
                     new TypeReference<HashMap<String, String>>() {
                     });
 

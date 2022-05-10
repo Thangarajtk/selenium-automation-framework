@@ -29,7 +29,7 @@ public final class PropertyUtils {
 	}
 
 	public static String get(ConfigProperties key) {
-		loadProperties(FrameworkConstants.getPropertiesFilePath());
+		loadProperties(FrameworkConstants.CONFIG_PROPERTIES_FILE_PATH);
 		if (Objects.isNull(property.getProperty(key.name().toLowerCase()))) {
 			throw new PropertyFileUsageException("Property name - " + key + " is not found. Please check the config.properties");
 		}

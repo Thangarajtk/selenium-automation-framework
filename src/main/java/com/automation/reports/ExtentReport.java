@@ -22,7 +22,7 @@ import java.util.Objects;
 public final class ExtentReport {
 
     private static ExtentReports extentReports;
-    private static final ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(FrameworkConstants.getExtentReportFolderPath());
+    private static final ExtentSparkReporter extentSparkReporter = new ExtentSparkReporter(FrameworkConstants.EXTENT_REPORTS_FOLDER_PATH);
 
     public static void initReports() {
         try {

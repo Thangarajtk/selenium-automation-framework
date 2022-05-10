@@ -4,6 +4,7 @@ import com.automation.config.ConfigFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import java.io.File;
 
 /**
@@ -17,24 +18,15 @@ public final class FrameworkConstants {
 
     public static final String PROJECT_PATH = System.getProperty("user.dir");
 
-    @Getter
-    private static final int explicitWait = 10;
-    @Getter
-    private static final String resourcesPath = PROJECT_PATH + File.separator + "src/test/resources";
-    @Getter
-    private static final String propertiesFilePath = getResourcesPath() + File.separator + "config/config.properties";
-    @Getter
-    private static final String jsonConfigFilePath = getResourcesPath() + File.separator + "config" + File.separator + "config.json";
-    @Getter
-    private static final String extentReportFolderPath = PROJECT_PATH + File.separator + "extent-test-output/";
-    @Getter
-    private static final String excelPath = getResourcesPath() + File.separator + "excel" + File.separator + "testdata.xlsx";
-    @Getter
-    private static final String runManagerSheet = "RUNMANAGER";
-    @Getter
-    private static final String iterationDataSheet = "DATA";
-    @Getter
-    private static final String screenshotPath = PROJECT_PATH + File.separator + "screenshots";
+    public static final int EXPLICIT_WAIT = 10;
+    public static final String RESOURCES_PATH = PROJECT_PATH + File.separator + "src/test/resources";
+    public static final String CONFIG_PROPERTIES_FILE_PATH = RESOURCES_PATH + File.separator + "config/config.properties";
+    public static final String JSON_CONFIG_FILE_PATH = RESOURCES_PATH + File.separator + "config" + File.separator + "config.json";
+    public static final String EXTENT_REPORTS_FOLDER_PATH = PROJECT_PATH + File.separator + "extent-test-output/";
+    public static final String TEST_DATA_EXCEL_PATH = RESOURCES_PATH + File.separator + "data" + File.separator + "testdata.xlsx";
+    public static final String RUN_MANAGER_SHEET = "RUNMANAGER";
+    public static final String DATA_SHEET = "DATA";
+    public static final String SCREENSHOT_PATH = PROJECT_PATH + File.separator + "screenshots";
 
     private static String extentReportFilePath = "";
 
@@ -47,9 +39,9 @@ public final class FrameworkConstants {
 
     private static String createReportPath() {
         if (ConfigFactory.getConfig().override_report().equalsIgnoreCase("no")) {
-            return getExtentReportFolderPath() + File.separator + System.currentTimeMillis() + File.separator + "index.html";
+            return EXTENT_REPORTS_FOLDER_PATH + File.separator + System.currentTimeMillis() + File.separator + "index.html";
         } else {
-            return getExtentReportFolderPath() + File.separator + "index.html";
+            return EXTENT_REPORTS_FOLDER_PATH + File.separator + "index.html";
         }
     }
 }
