@@ -1,8 +1,8 @@
 package com.automation.driver.factory;
 
 import com.automation.driver.abstraction.IDriver;
-import com.automation.driver.factory.local.LocalDriver;
-import com.automation.driver.factory.remote.RemoteDriver;
+import com.automation.driver.factory.local.LocalDriverImpl;
+import com.automation.driver.factory.remote.RemoteDriverImpl;
 import com.automation.enums.RunType;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -17,8 +17,8 @@ public final class DriverFactory {
     private static final Map<RunType, Supplier<IDriver>> WEB = new EnumMap<>(RunType.class);
 
     static {
-        WEB.put(RunType.LOCAL, LocalDriver::new);
-        WEB.put(RunType.REMOTE, RemoteDriver::new);
+        WEB.put(RunType.LOCAL, LocalDriverImpl::new);
+        WEB.put(RunType.REMOTE, RemoteDriverImpl::new);
     }
 
     public static IDriver getDriver(RunType runType) {

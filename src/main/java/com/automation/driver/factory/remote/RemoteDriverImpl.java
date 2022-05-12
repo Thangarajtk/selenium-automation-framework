@@ -1,13 +1,13 @@
-package com.automation.driver.factory.local;
+package com.automation.driver.factory.remote;
 
 import com.automation.driver.abstraction.IDriver;
 import com.automation.driver.entity.DriverData;
 import org.openqa.selenium.WebDriver;
 
-public class LocalDriver implements IDriver {
+public class RemoteDriverImpl implements IDriver {
 
     @Override
     public WebDriver getDriver(DriverData driverData) {
-        return LocalDriverFactory.getDriver(driverData.getBrowserType());
+        return RemoteDriverFactory.getDriver(driverData.getBrowserRemoteModeType(), driverData.getBrowserType());
     }
 }
