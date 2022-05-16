@@ -40,8 +40,7 @@ public final class OrangeHRMTests extends BaseTest {
 		new LoginPage()
 				.loginToApplication(data.get("username"), data.get("password"))
 				.navigateToAddUsersPage()
-				.getAddUserComponent()
-				.setAddButton();
+				.getAddUserComponent();
 	}
 	
 	

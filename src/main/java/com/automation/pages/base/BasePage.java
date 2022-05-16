@@ -8,6 +8,9 @@ import com.automation.driver.manager.DriverManager;
 import com.automation.enums.WaitStrategy;
 import com.automation.reports.ExtentLogger;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.function.Consumer;
 
 public class BasePage {
 
@@ -39,6 +42,10 @@ public class BasePage {
 
     protected String getPageTitle() {
         return DriverManager.getDriver().getTitle();
+    }
+
+    protected void select(By by, Consumer<Select> consumer) {
+        consumer.accept(new Select(DriverManager.getDriver().findElement(by)));
     }
 
 }
