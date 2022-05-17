@@ -1,6 +1,7 @@
 package com.automation.pages.orangehrm.pagecomponents.adduserspage;
 
 import com.automation.enums.WaitStrategy;
+import com.automation.fixtures.addusers.entity.UserData;
 import com.automation.pages.base.BasePage;
 import org.openqa.selenium.By;
 
@@ -47,7 +48,7 @@ public class AddUserComponent extends BasePage {
         return true;
     }
 
-    public boolean fillDetails() {
+    public boolean fillDetails(UserData userData) {
         return true;
     }
 

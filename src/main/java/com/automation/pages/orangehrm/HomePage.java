@@ -22,7 +22,7 @@ public final class HomePage extends BasePage {
 		this.topMenuComponent = new TopMenuComponent();
 	}
 
-	public SystemUsersPage navigateToAddUsersPage() {
+	public SystemUsersPage navigateToSystemUsersPage() {
 		topMenuComponent.clickMenuItem(MenuType.ADMIN)
 				.clickSubMenuItem(SubMenuType.USER_MANAGEMENT)
 				.clickSubMenuItem(SubMenuType.USERS);

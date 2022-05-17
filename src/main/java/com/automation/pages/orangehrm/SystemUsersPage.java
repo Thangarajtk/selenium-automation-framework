@@ -1,19 +1,19 @@
 package com.automation.pages.orangehrm;
 
 import com.automation.pages.base.BasePage;
-import com.automation.pages.orangehrm.pagecomponents.adduserspage.AddUserComponent;
 import com.automation.pages.orangehrm.pagecomponents.adduserspage.SearchComponent;
+import com.automation.pages.orangehrm.pagecomponents.adduserspage.UserListComponent;
 
 public final class SystemUsersPage extends BasePage {
 
     private final SearchComponent searchComponent;
-    private final AddUserComponent addUserComponent;
+    private final UserListComponent userListComponent;
 
     public SystemUsersPage() {
-        this.addUserComponent = new AddUserComponent();
+        this.userListComponent = new UserListComponent();
         this.searchComponent = new SearchComponent();
     }
-    public AddUserComponent getAddUserComponent() {
-        return addUserComponent;
+    public UserListComponent getUserListComponent() {
+        return userListComponent;
     }
 }
