@@ -17,25 +17,21 @@ import java.time.Duration;
 public final class WaitFactory {
 
 	public static WebElement performExplicitWait(WaitStrategy waitstrategy, By by) {
-		WebElement element = null;
+
 		switch (waitstrategy) {
 			case CLICKABLE:
-				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
+				return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
 						.until(ExpectedConditions.elementToBeClickable(by));
-				break;
 			case PRESENCE:
-				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
+				return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
 						.until(ExpectedConditions.presenceOfElementLocated(by));
-				break;
 			case VISIBLE:
-				element = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
+				return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(FrameworkConstants.EXPLICIT_WAIT))
 						.until(ExpectedConditions.visibilityOfElementLocated(by));
-				break;
 			case NONE:
-				element = DriverManager.getDriver().findElement(by);
-				break;
+				return DriverManager.getDriver().findElement(by);
 		}
-		return element;
+		return null;
 	}
 
 }

@@ -9,8 +9,9 @@ import com.automation.enums.WaitStrategy;
 import com.automation.reports.ExtentLogger;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
+import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 public class BasePage {
 
@@ -48,4 +49,37 @@ public class BasePage {
         consumer.accept(new Select(DriverManager.getDriver().findElement(by)));
     }
 
+    protected void clickOnMenuItemWithMatchingText(List<WebElement> elementList, String menuItem) {
+        elementList.stream()
+                .parallel()
+                .filter(e -> e.getText().equalsIgnoreCase(menuItem))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Element with text - " + menuItem + " is not present"))
+                .click();
+    }
+
+    protected boolean checkForMatchingOptionInDropdown(By by, String option) {
+        Select select = new Select(DriverManager.getDriver().findElement(by));
+
+        return select.getOptions()
+                .stream()
+                .anyMatch(e -> e.getText().equalsIgnoreCase(option));
+    }
+
+    protected List<String> getAllText(By by) {
+        List<WebElement> elementList = DriverManager.getDriver().findElements(by);
+
+        return elementList.stream()
+                .map(e -> e.getText().trim())
+                .collect(Collectors.toList());
+    }
+
+    protected List<String> getAllMatchingText(By by, String matchingText) {
+        List<WebElement> elementList = DriverManager.getDriver().findElements(by);
+
+        return elementList.stream()
+                .filter(e -> e.getText().contains(matchingText))
+                .map(e -> e.getText().trim())
+                .collect(Collectors.toList());
+    }
 }
