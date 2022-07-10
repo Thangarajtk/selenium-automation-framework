@@ -1,9 +1,13 @@
 package com.automation.pages.orangehrm.pagecomponents.adduserspage;
 
+import com.automation.driver.manager.DriverManager;
 import com.automation.enums.WaitStrategy;
 import com.automation.fixtures.addusers.entity.UserData;
 import com.automation.pages.base.BasePage;
 import org.openqa.selenium.By;
+
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 
 public class AddUserComponent extends BasePage {
 
@@ -13,6 +17,7 @@ public class AddUserComponent extends BasePage {
     private static final By TEXT_BOX_USER_NAME = By.xpath("//label[text()='Username']/following-sibling::input");
     private static final By TEXT_BOX_PASSWORD = By.xpath("//label[text()='Password']/following-sibling::input");
     private static final By TEXT_BOX_CONFIRM_PASSWORD = By.xpath("//label[text()='Confirm Password']/following-sibling::input");
+    private static final By ERROR_MESSAGE_FOR_EMPLOYEE_NAME = By.xpath("//span[@for='systemUser_employeeName_empName']");
 
     public AddUserComponent setUserRoleDropDown(String userRole) {
         select(DROP_DOWN_USER_ROLE, e -> e.selectByVisibleText(userRole));
@@ -44,12 +49,23 @@ public class AddUserComponent extends BasePage {
         return this;
     }
 
+    public boolean isErrorDisplayedForEmployeeName() {
+        return DriverManager.getDriver().findElement(ERROR_MESSAGE_FOR_EMPLOYEE_NAME).getText()
+                .equalsIgnoreCase("Employee does not exist");
+    }
+
     public boolean isSuccessMessageDisplayed() {
         return true;
     }
 
-    public boolean fillDetails(UserData userData) {
-        return true;
+    public boolean fillDetails(UserData userData, BiPredicate<UserData, AddUserComponent> predicate) {
+//        setUserNameTextBox(userData.getUserName())
+//                .setPasswordTextBox(userData.getPassword())
+//                .setConfirmPasswordTextBox(userData.getPassword())
+//                .setStatusDropDown(userData.getStatus())
+//                .setEmployeeNameTextBox(userData.getEmployeeName());
+
+        return predicate.test(userData, this);
     }
 
 }

@@ -16,5 +16,9 @@ public class AddUserTemplate implements TemplateLoader {
             add("status", random("Enabled", "Disabled"));
             add("password", random("testPassword@123"));
         }});
+
+        Fixture.of(UserData.class).addTemplate("just_employee_name", new Rule() {{
+            add("employeeName", random("test_user"));
+        }});
     }
 }
