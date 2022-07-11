@@ -15,10 +15,12 @@ public class AddUserTemplate implements TemplateLoader {
             add("userName", random("test_user"));
             add("status", random("Enabled", "Disabled"));
             add("password", random("testPassword@123"));
+            add("errorMessage", "Success message is not displayed");
         }});
 
         Fixture.of(UserData.class).addTemplate("just_employee_name", new Rule() {{
             add("employeeName", random("test_user"));
+            add("message", "Error message is not displayed");
         }});
     }
 }
