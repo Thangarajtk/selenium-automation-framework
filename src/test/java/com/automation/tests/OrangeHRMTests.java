@@ -33,7 +33,7 @@ public final class OrangeHRMTests extends BaseTest {
         Assertions.assertThat(title).isEqualTo(StringConstants.ORANGEHRM_PAGE_TITLE);
     }
 
-    @DataSupplier
+    @DataSupplier(runInParallel = true)
     public Stream<AddUsersScenarioType> getData() {
         FixtureFactoryLoader.loadTemplates("com.automation.fixtures.addusers");
         return Stream.of(AddUsersScenarioType.values());
