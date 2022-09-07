@@ -6,8 +6,11 @@ import com.automation.base.BaseTest;
 import com.automation.constants.StringConstants;
 import com.automation.enums.Authors;
 import com.automation.enums.CategoryType;
+import com.automation.pages.orangehrm.HomePage;
+import com.automation.pages.orangehrm.HomePageAssert;
 import com.automation.pages.orangehrm.LoginPage;
 import com.automation.pages.orangehrm.enums.AddUsersScenarioType;
+import com.automation.pages.orangehrm.validator.HomePageValidator;
 import io.github.sskorol.core.DataSupplier;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -55,5 +58,18 @@ public final class OrangeHRMTests extends BaseTest {
                 .isTrue();
     }
 
+    @Test
+    @FrameworkAnnotation(author = {Authors.USER_1, Authors.USER_2},
+            category = {CategoryType.REGRESSION, CategoryType.SANITY})
+    public void testHomePageComponents(Map<String, String> data) {
+        HomePageValidator homePageValidator = new LoginPage()
+                .loginToApplication("Admin", "admin123")
+                .getHomePageValidator();
 
+        HomePageAssert.assertThat(homePageValidator)
+                .isMarketPlaceLinkPresent()
+                .headerNameEquals("Dashboard")
+                .logoSourceStringContains("/images/logo.png")
+                .assertAll();
+    }
 }

@@ -11,6 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class BasePage {
@@ -81,5 +83,13 @@ public class BasePage {
                 .filter(e -> e.getText().contains(matchingText))
                 .map(e -> e.getText().trim())
                 .collect(Collectors.toList());
+    }
+
+    protected String getAttribute(By by, Function<WebElement, String> attributeFunction) {
+        return attributeFunction.apply(DriverManager.getDriver().findElement(by));
+    }
+
+    protected boolean isPresent(By by, Predicate<WebElement> elementPredicate) {
+        return elementPredicate.test(DriverManager.getDriver().findElement(by));
     }
 }

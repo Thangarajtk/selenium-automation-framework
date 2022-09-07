@@ -20,7 +20,7 @@
 		<fixture-factory.version>3.1.0</fixture-factory.version>
 		<json-path-version>2.6.0</json-path-version>
 		<extent-reports>5.0.9</extent-reports>
-		<jackson-version>2.13.3</jackson-version>
+		<jackson-version>2.13.4</jackson-version>
 		<lombok>1.18.24</lombok>
 		<noexception>1.8.0</noexception>
 		<owner>1.0.12</owner>
@@ -175,6 +175,12 @@
 			<groupId>br.com.six2six</groupId>
 			<artifactId>fixture-factory</artifactId>
 			<version>${fixture-factory.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.23.1</version>
+			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>
