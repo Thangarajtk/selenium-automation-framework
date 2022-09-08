@@ -25,11 +25,10 @@
 		<noexception>1.8.0</noexception>
 		<owner>1.0.12</owner>
 		<selenium-java>4.4.0</selenium-java>
-		<test-data-supplier>1.9.7</test-data-supplier>
 		<testng-version>6.14.3</testng-version>
 		<test-data-supplier>2.1.0</test-data-supplier>
 		<webdrivermanager-version>5.3.0</webdrivermanager-version>
-		<zerocell>0.5.1</zerocell>
+		<zerocell.version>0.5.1</zerocell.version>
 	</properties>
 
 	<build>
@@ -168,6 +167,13 @@
 			<groupId>io.github.sskorol</groupId>
 			<artifactId>test-data-supplier</artifactId>
 			<version>${test-data-supplier}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.creditdatamw.labs/zerocell-core -->
+		<dependency>
+			<groupId>com.creditdatamw.labs</groupId>
+			<artifactId>zerocell-core</artifactId>
+			<version>${zerocell.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/br.com.six2six/fixture-factory -->

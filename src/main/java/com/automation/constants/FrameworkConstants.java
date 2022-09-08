@@ -2,7 +2,6 @@ package com.automation.constants;
 
 import com.automation.config.ConfigFactory;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.io.File;
