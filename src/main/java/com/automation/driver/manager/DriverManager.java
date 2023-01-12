@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
 /**
- * DriverManager class helps to achieve thread safety for the instance.
+ * DriverManager class helps to achieve thread safety for the driver instance.
  * @author Administrator
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

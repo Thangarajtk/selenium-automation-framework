@@ -14,7 +14,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class JsonUtils {
+public final class JsonUtils {
 
     private static final Map<String, String> map;
 

@@ -8,21 +8,25 @@ import com.automation.pages.amazon.AmazonHomePage;
 import com.automation.utils.zerocell.TestData;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
+
+import java.util.Objects;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class AmazonDemoTest extends BaseTest {
 
-    @Test
-    @FrameworkAnnotation(author = {Authors.USER_1, Authors.USER_2},
-            category = {CategoryType.REGRESSION, CategoryType.SANITY})
-    public void amazonTest(TestData data) {
-        String title = new AmazonHomePage().clickHamburger()
-                .clickComputer()
-                .clickOnSubMenuItem(data.getMenuToSelect())
-                .getTitle();
+  @Test
+  @FrameworkAnnotation(author = {Authors.USER_1, Authors.USER_2},
+    category = {CategoryType.REGRESSION, CategoryType.SANITY})
+  public void amazonTest(TestData data) {
+    String title = Objects.requireNonNull(new AmazonHomePage().clickHamburger()
+        .clickComputer()
+        .clickOnSubMenuItem(data.getMenuToSelect()))
+      .getTitle();
 
-        Assertions.assertThat(title).isNotNull();
-    }
+    assertThat(title).isNotNull();
+  }
 }

@@ -7,7 +7,6 @@ import com.automation.pages.base.BasePage;
 import org.openqa.selenium.By;
 
 import java.util.function.BiPredicate;
-import java.util.function.Predicate;
 
 public class AddUserComponent extends BasePage {
 

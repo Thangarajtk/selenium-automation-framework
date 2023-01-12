@@ -6,7 +6,6 @@ import com.automation.base.BaseTest;
 import com.automation.constants.StringConstants;
 import com.automation.enums.Authors;
 import com.automation.enums.CategoryType;
-import com.automation.pages.orangehrm.HomePage;
 import com.automation.pages.orangehrm.HomePageAssert;
 import com.automation.pages.orangehrm.LoginPage;
 import com.automation.pages.orangehrm.enums.AddUsersScenarioType;
