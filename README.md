@@ -61,3 +61,6 @@ docker run -p 9200:9200 -p 9300:9300 --name elasticsearch -e "discovery.type=sin
 ```
 docker run -p 5601:5601 --name kibana --link elasticsearch:elasticsearch docker.elastic.co/kibana/kibana:7.11.1
 ```
+
+### Credits
+This framework is built by following [Testing Mini Bytes](https://www.youtube.com/playlist?list=PL9ok7C7Yn9A_JZFMrhrgEwfqQGiuyvSkB) YouTube channel.
