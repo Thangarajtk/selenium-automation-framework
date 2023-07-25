@@ -13,21 +13,21 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 		<apache-poi>5.2.2</apache-poi>
-		<assertj-core>3.23.1</assertj-core>
+		<assertj-core>3.24.2</assertj-core>
 		<fixture-factory.version>3.1.0</fixture-factory.version>
 		<json-path.version>2.6.0</json-path.version>
 		<extent-reports.version>5.0.9</extent-reports.version>
-		<jackson.version>2.14.0</jackson.version>
-		<lombok.version>1.18.24</lombok.version>
+		<jackson.version>2.15.1</jackson.version>
+		<lombok.version>1.18.26</lombok.version>
 		<noexception.version>1.9.0</noexception.version>
 		<owner.version>1.0.12</owner.version>
-		<selenium-java.version>4.7.1</selenium-java.version>
-		<testng.version>6.14.3</testng.version>
-		<test-data-supplier>1.9.7</test-data-supplier>
-		<webdrivermanager-version>5.3.1</webdrivermanager-version>
+		<selenium-java.version>4.10.0</selenium-java.version>
+		<testng.version>7.7.0</testng.version>
+		<test-data-supplier.version>2.2.0</test-data-supplier.version>
+		<webdrivermanager-version>5.3.2</webdrivermanager-version>
 		<zerocell.version>0.5.1</zerocell.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
@@ -38,23 +38,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
             </plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
-				<configuration>
-					<forkCount>0</forkCount>
-					<suiteXmlFiles>
-						<!--suppress UnresolvedMavenProperty -->
-						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
-					</suiteXmlFiles>
-				</configuration>
 			</plugin>
         </plugins>
 	</build>
@@ -118,7 +107,7 @@
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.12.2</version>
+			<version>2.12.5</version>
 		</dependency>
 
 		<!-- APACHE POI DEPENDENCIES -->
@@ -166,7 +155,7 @@
 		<dependency>
 			<groupId>io.github.sskorol</groupId>
 			<artifactId>test-data-supplier</artifactId>
-			<version>${test-data-supplier}</version>
+			<version>${test-data-supplier.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.creditdatamw.labs/zerocell-core -->
