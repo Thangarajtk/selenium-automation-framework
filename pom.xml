@@ -8,26 +8,26 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Selenium_Java-WebAutomationFramework</name>
+	<name>Selenium - Web Automation Framework</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<apache-poi>5.2.2</apache-poi>
+		<apache-poi>5.2.4</apache-poi>
 		<assertj-core>3.24.2</assertj-core>
 		<fixture-factory.version>3.1.0</fixture-factory.version>
 		<json-path.version>2.6.0</json-path.version>
-		<extent-reports.version>5.0.9</extent-reports.version>
-		<jackson.version>2.15.1</jackson.version>
-		<lombok.version>1.18.26</lombok.version>
+		<extent-reports.version>5.1.1</extent-reports.version>
+		<jackson.version>2.16.0</jackson.version>
+		<lombok.version>1.18.30</lombok.version>
 		<noexception.version>1.9.0</noexception.version>
 		<owner.version>1.0.12</owner.version>
-		<selenium-java.version>4.10.0</selenium-java.version>
-		<testng.version>7.7.0</testng.version>
+		<selenium-java.version>4.15.0</selenium-java.version>
+		<testng.version>7.8.0</testng.version>
 		<test-data-supplier.version>2.2.0</test-data-supplier.version>
-		<webdrivermanager-version>5.3.2</webdrivermanager-version>
+		<webdrivermanager-version>5.6.2</webdrivermanager-version>
 		<zerocell.version>0.5.1</zerocell.version>
 		<slf4j.version>2.0.6</slf4j.version>
 	</properties>
@@ -37,7 +37,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.11.0</version>
             </plugin>
 
 			<plugin>
