@@ -60,7 +60,7 @@ public final class OrangeHRMTests extends BaseTest {
     @Test
     @FrameworkAnnotation(author = {Authors.USER_1, Authors.USER_2},
             category = {CategoryType.REGRESSION, CategoryType.SANITY})
-    public void testHomePageComponents(Map<String, String> data) {
+    public void testHomePageComponents() {
         HomePageValidator homePageValidator = new LoginPage()
                 .loginToApplication("Admin", "admin123")
                 .getHomePageValidator();

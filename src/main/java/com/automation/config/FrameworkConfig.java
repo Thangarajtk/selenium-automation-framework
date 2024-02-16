@@ -13,8 +13,8 @@ import java.net.URL;
         "system:properties",
         "system:env",
         "file:${user.dir}/src/test/resources/config/config.properties",
-//        "file:${user.dir}/src/test/resources/config/dev-config.properties",
-//        "file:${user.dir}/src/test/resources/config/staging-config.properties",
+        "file:${user.dir}/src/test/resources/config/dev-config.properties",
+        "file:${user.dir}/src/test/resources/config/staging-config.properties",
         "file:${user.dir}/src/test/resources/config/${myConfig}.properties"
 })
 public interface FrameworkConfig extends Config {

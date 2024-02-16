@@ -15,19 +15,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class GooglePageTests extends BaseTest {
 
-  @Test
-  @FrameworkAnnotation(author = {Authors.USER_1},
-    category = {CategoryType.SANITY})
-  public void googleSearchTest() {
-    String title = new GoogleSearchPage()
-      .performSearch("Automation")
-      .getSearchResultsPageTitle();
+    @Test
+    @FrameworkAnnotation(author = {Authors.USER_1}, category = {CategoryType.SANITY})
+    public void googleSearchTest() {
+        String title = new GoogleSearchPage()
+                .performSearch("Automation")
+                .getSearchResultsPageTitle();
 
-    assertThat(title)
-      .as("Object is actually null").isNotNull()
-      .as("It does not contains expected text").containsIgnoringCase("google search")
-      .matches("\\w.*" + StringConstants.GOOGLE_SEARCH_RESULTS_PAGE_TITLE)
-      .hasSizeBetween(15, 100);
-  }
+        assertThat(title)
+                .as("Object is actually null").isNotNull()
+                .as("It does not contains expected text").containsIgnoringCase("google search")
+                .matches("\\w.*" + StringConstants.GOOGLE_SEARCH_RESULTS_PAGE_TITLE)
+                .hasSizeBetween(15, 100);
+    }
 
 }
