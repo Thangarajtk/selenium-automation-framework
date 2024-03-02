@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SeleniumGridChromeManager {
 
+    private SeleniumGridChromeManager() {}
+
     @SneakyThrows
     public static WebDriver getDriver() {
         return new RemoteWebDriver(ConfigFactory.getConfig().seleniumGridUrl(), new ChromeOptions());

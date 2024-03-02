@@ -27,7 +27,7 @@
 		<selenium-java.version>4.17.0</selenium-java.version>
 		<testng.version>7.9.0</testng.version>
 		<test-data-supplier.version>2.2.0</test-data-supplier.version>
-		<webdrivermanager-version>5.6.3</webdrivermanager-version>
+		<webdrivermanager-version>5.7.0</webdrivermanager-version>
 		<zerocell.version>0.5.1</zerocell.version>
 		<slf4j.version>2.0.9</slf4j.version>
 	</properties>

@@ -15,8 +15,7 @@ import java.util.function.Supplier;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class LocalDriverFactory {
 
-    private static final Map<BrowserType, Supplier<WebDriver>>
-            MAP = new EnumMap<>(BrowserType.class);
+    private static final Map<BrowserType, Supplier<WebDriver>> MAP = new EnumMap<>(BrowserType.class);
 
     static {
         MAP.put(BrowserType.CHROME, ChromeManager::getDriver);
