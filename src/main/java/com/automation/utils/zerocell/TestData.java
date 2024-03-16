@@ -3,7 +3,6 @@ package com.automation.utils.zerocell;
 import com.creditdatamw.zerocell.annotation.Column;
 import lombok.Getter;
 import lombok.ToString;
-import org.aeonbits.owner.Config;
 
 @Getter
 @ToString

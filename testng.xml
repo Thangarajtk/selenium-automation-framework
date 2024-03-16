@@ -16,7 +16,6 @@
 <!--            </class>-->
 
             <class name="com.automation.tests.AmazonDemoTest"/>
-<!--            <class name="com.automation.tests.GooglePageTests"/>-->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
