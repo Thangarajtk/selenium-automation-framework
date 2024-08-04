@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class LocalDriverFactory {
+final class LocalDriverFactory {
 
     private static final Map<BrowserType, Supplier<WebDriver>> MAP = new EnumMap<>(BrowserType.class);
 

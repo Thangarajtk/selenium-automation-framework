@@ -5,6 +5,7 @@ import com.automation.pages.orangehrm.enums.topmenucomponent.MenuType;
 import com.automation.pages.orangehrm.enums.topmenucomponent.SubMenuType;
 import com.automation.pages.orangehrm.pagecomponents.homepage.TopMenuComponent;
 import com.automation.pages.orangehrm.validator.HomePageValidator;
+import lombok.Getter;
 import org.openqa.selenium.By;
 import com.automation.enums.WaitStrategy;
 import org.openqa.selenium.WebElement;
@@ -15,11 +16,8 @@ public final class HomePage extends BasePage {
 	private final By linkLogout = By.xpath("//a[text()='Logout']");
 	private static final By HEADER = By.xpath("//h1");
 
+	@Getter
 	private final TopMenuComponent topMenuComponent;
-
-	public TopMenuComponent getTopMenuComponent() {
-		return topMenuComponent;
-	}
 
 	public HomePage() {
 		this.topMenuComponent = new TopMenuComponent();

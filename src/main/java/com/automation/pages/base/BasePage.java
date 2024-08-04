@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class BasePage {
 
@@ -23,14 +22,12 @@ public class BasePage {
   }
 
   protected void click(By by, WaitStrategy waitstrategy, String elementName) {
-    WaitFactory.performExplicitWait(waitstrategy, by)
-      .click();
+    WaitFactory.performExplicitWait(waitstrategy, by).click();
     ExtentLogger.pass(elementName + " is clicked");
   }
 
   protected void sendKeys(By by, String value, WaitStrategy waitstrategy, String elementName) {
-    WaitFactory.performExplicitWait(waitstrategy, by)
-      .sendKeys(value);
+    WaitFactory.performExplicitWait(waitstrategy, by).sendKeys(value);
     ExtentLogger.pass(value + " is entered successfully in " + elementName);
   }
 
@@ -62,11 +59,10 @@ public class BasePage {
   }
 
   protected boolean checkForMatchingOptionInDropdown(By by, String option) {
-    Select select = new Select(DriverManager.getDriver().findElement(by));
-
-    return select.getOptions()
-      .stream()
-      .anyMatch(e -> e.getText().equalsIgnoreCase(option));
+    return new Select(DriverManager.getDriver().findElement(by))
+            .getOptions()
+            .stream()
+            .anyMatch(e -> e.getText().equalsIgnoreCase(option));
   }
 
   protected List<String> getAllText(By by) {
@@ -74,16 +70,15 @@ public class BasePage {
 
     return elementList.stream()
       .map(e -> e.getText().trim())
-      .collect(Collectors.toList());
+      .toList();
   }
 
   protected List<String> getAllMatchingText(By by, String matchingText) {
-    List<WebElement> elementList = DriverManager.getDriver().findElements(by);
-
-    return elementList.stream()
-      .filter(e -> e.getText().contains(matchingText))
-      .map(e -> e.getText().trim())
-      .collect(Collectors.toList());
+    return DriverManager.getDriver().findElements(by)
+            .stream()
+            .filter(e -> e.getText().contains(matchingText))
+            .map(e -> e.getText().trim())
+            .toList();
   }
 
   protected String getAttribute(By by, Function<WebElement, String> attributeFunction) {

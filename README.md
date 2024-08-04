@@ -24,7 +24,7 @@ Test automation framework for web applications using Selenium 4 and Java
 :point_right: Create or Select the required testng xml -> Right click and select Run
 
 ## :pushpin: Running tests through Maven
-:point_right: Run test using command `mvn test -Dsurefire.suiteXmlFile=<provide the testng xml to execute>`
+:point_right: Run test using command `mvn test -DsuiteXmlFile=<provide the testng xml to execute>`
 
 ## :pushpin: Key Features
 :point_right: Supports cross browser testing in local and remote.

@@ -18,7 +18,7 @@ import java.util.Map;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ExcelUtils {
 
-    public static List<Map<String, String>> getTestDetails(String sheetName) {
+    public static List<Map<String, String>>  getTestDetails(String sheetName) {
         List<Map<String, String>> list;
 
         try (FileInputStream fs = new FileInputStream(FrameworkConstants.TEST_DATA_EXCEL_PATH)) {

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class SelenoidFactory {
+final class SelenoidFactory {
 
     public static WebDriver getDriver(BrowserType browserType) {
         return isChromeBrowser(browserType) ? SelenoidChromeManager.getDriver() :

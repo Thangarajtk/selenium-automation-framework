@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class RemoteDriverFactory {
+final class RemoteDriverFactory {
 
     private static final Map<BrowserRemoteModeType, Function<BrowserType, WebDriver>>
             MAP = new EnumMap<>(BrowserRemoteModeType.class);
