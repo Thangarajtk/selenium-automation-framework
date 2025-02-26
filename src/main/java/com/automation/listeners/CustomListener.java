@@ -6,7 +6,7 @@ import com.automation.reports.ExtentLogger;
 import com.automation.reports.ExtentReport;
 import org.testng.*;
 
-public class ListenerClass implements ITestListener, ISuiteListener {
+public class CustomListener implements ITestListener, ISuiteListener {
 
     @Override
     public void onStart(ISuite suite) {

@@ -5,6 +5,7 @@ import com.automation.enums.WaitStrategy;
 import com.automation.factories.WaitFactory;
 import com.automation.reports.ExtentLogger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -87,5 +88,15 @@ public class BasePage {
 
   protected boolean isPresent(By by, Predicate<WebElement> elementPredicate) {
     return elementPredicate.test(DriverManager.getDriver().findElement(by));
+  }
+
+  protected void scrollIntoElementView(By by) {
+    JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+    js.executeScript("arguments[0].scrollIntoView(true);", DriverManager.getDriver().findElement(by));
+  }
+
+  protected void clickUsingJSExecutor(By by) {
+    JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+    js.executeScript("arguments[0].click();", DriverManager.getDriver().findElement(by));
   }
 }

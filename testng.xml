@@ -2,9 +2,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
     <listeners>
-        <listener class-name="com.automation.listeners.ListenerClass"/>
+        <listener class-name="com.automation.listeners.CustomListener"/>
         <listener class-name="com.automation.listeners.MethodInterceptor"/>
         <listener class-name="com.automation.listeners.AnnotationTransformer"/>
+        <listener class-name="com.aventstack.chaintest.plugins.ChainTestListener"/>
     </listeners>
 
     <test name="Test">

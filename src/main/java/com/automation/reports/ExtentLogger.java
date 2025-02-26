@@ -2,6 +2,7 @@ package com.automation.reports;
 
 import com.automation.config.ConfigFactory;
 import com.automation.utils.screenshot.ScreenshotService;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
@@ -26,6 +27,7 @@ public final class ExtentLogger {
             ExtentManager.getExtentTest().fail(MarkupHelper.createLabel(message, ExtentColor.RED))
                     .fail(MediaEntityBuilder.createScreenCaptureFromBase64String(ScreenshotService.getScreenshotAsBase64()).build())
                     .fail(t);
+            ChainTestListener.embed(ScreenshotService.getScreenshotAsBase64(), "image/png");
         } else {
             ExtentManager.getExtentTest().fail(message).fail(t);
         }

@@ -32,6 +32,7 @@ public final class Driver {
                     .getDriver(driverData));
         }
         DriverManager.getDriver().get(ConfigFactory.getConfig().url());
+        DriverManager.getDriver().manage().window().maximize();
     }
 
     public static void quitDriver() {

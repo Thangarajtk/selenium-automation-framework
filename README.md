@@ -4,7 +4,7 @@ Test automation framework for web applications using Selenium 4 and Java
 ![WebDriver-W3C-Protocol-1](https://user-images.githubusercontent.com/48508827/155773516-432123c9-a3fe-40d0-8c95-1aaea1c7ec91.png)
 
 ## :rocket: Quick Start
-1) Install [Java JDK11](https://www.oracle.com/in/java/technologies/javase/jdk11-archive-downloads.html) 
+1) Install [Java JDK 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) 
 2) Download [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 3) Download [Docker Desktop](https://docs.docker.com/desktop/windows/install/)
 

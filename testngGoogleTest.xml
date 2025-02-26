@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
     <listeners>
-        <listener class-name="com.automation.listeners.ListenerClass"/>
+        <listener class-name="com.automation.listeners.CustomListener"/>
     </listeners>
 
     <test name="Test">
