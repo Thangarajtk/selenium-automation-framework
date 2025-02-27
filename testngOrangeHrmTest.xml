@@ -3,14 +3,16 @@
 <suite name="Suite">
     <listeners>
         <listener class-name="com.automation.listeners.CustomListener"/>
-        <listener class-name="com.automation.listeners.MethodInterceptor"/>
-        <listener class-name="com.automation.listeners.AnnotationTransformer"/>
         <listener class-name="com.aventstack.chaintest.plugins.ChainTestListener"/>
     </listeners>
 
     <test name="Test">
         <classes>
-            <class name="com.automation.tests.AmazonDemoTest"/>
+            <class name="com.automation.tests.OrangeHRMTests">
+                <methods>
+                    <include name="testAddUsers"/>
+                </methods>
+            </class>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

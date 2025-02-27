@@ -1,16 +1,15 @@
 package com.automation.pages.amazon;
 
+import com.automation.enums.WaitStrategy;
 import com.automation.pages.base.BasePage;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.By;
 
 public final class AmazonHomePage extends BasePage {
 
-	@FindBy(id="nav-hamburger-menu") 
-	private WebElement linkHamburger;
-	
-	public AmazonHamburgerMenuPage clickHamburger() {
-		linkHamburger.click();
-		return new AmazonHamburgerMenuPage();
-	}
+    private final By menuHamburger = By.id("nav-hamburger-menu");
+
+    public AmazonHamburgerMenuPage clickHamburger() {
+        click(menuHamburger, WaitStrategy.CLICKABLE, "Hamburger menu");
+        return new AmazonHamburgerMenuPage();
+    }
 }

@@ -8,6 +8,8 @@ import org.testng.*;
 
 public class CustomListener implements ITestListener, ISuiteListener {
 
+    private static final String TEST = "Test - <b>";
+
     @Override
     public void onStart(ISuite suite) {
         ExtentReport.initReports();
@@ -21,28 +23,28 @@ public class CustomListener implements ITestListener, ISuiteListener {
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReport.createTest(result.getMethod().getDescription());
-        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotation.class)
-                .author());
-        ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(FrameworkAnnotation.class)
-                .category());
+        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotation.class).author());
+        ExtentReport.addCategories(result.getMethod().getConstructorOrMethod().getMethod()
+                .getAnnotation(FrameworkAnnotation.class).category());
         ExtentReport.addBrowsers();
         ExtentLogger.info(ExtentReport.getBrowserDetails(DriverManager.getDriver()));
-        ExtentLogger.pass("Test - <b>" + result.getMethod().getMethodName() + "</b> is started");
+        ExtentLogger.pass(TEST + result.getMethod().getMethodName() + "</b> is started");
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        ExtentLogger.pass("Test - <b>" + result.getMethod().getMethodName() + "</b> is passed");
+        ExtentLogger.pass(TEST + result.getMethod().getMethodName() + "</b> is passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail("Test - <b>" + result.getMethod().getMethodName() + "</b> is failed", result.getThrowable());
+        ExtentLogger.fail(TEST + result.getMethod().getMethodName() + "</b> is failed", result.getThrowable());
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        ExtentLogger.skip("Test - <b>" + result.getMethod().getMethodName() + "</b> is skipped");
+        ExtentLogger.skip(TEST + result.getMethod().getMethodName() + "</b> is skipped");
     }
 
     @Override
